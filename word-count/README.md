@@ -33,7 +33,3 @@ changing `xit` to `it`.
 ## Source
 
 This is a classic toy problem, but we were reminded of it by seeing it in the Go Tour.
-
-## Submitting Incomplete Problems
-It's possible to submit an incomplete solution so you can see how others have completed the exercise.
-
