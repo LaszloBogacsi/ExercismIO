@@ -6,7 +6,7 @@ See [Laszlo's ExercismIO profile](http://exercism.io/LaszloBogacsi) for more det
 
 #### Objective
 
-To practice OO programming in JavaScript.
+To practice and experiment OO programming in JavaScript and Python.
 
 #### Usage
 
