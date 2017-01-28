@@ -1,22 +1,24 @@
 function Anagram(word) {
-  this.word = word;
+  this.word = word.toLowerCase();
 }
 
 Anagram.prototype.matches = function (wordsArr) {
   var word = this.word;
+  var wordsArr = wordsArr;
   anagrams = [];
+  if (typeof arguments[0] == 'string') {
+    wordsArr = Array.from(arguments);
+  }
   for (var i = 0; i < wordsArr.length; i++){
-    if (wordsArr[i].length === word.length){
+    var possibleWord = wordsArr[i].toLowerCase();
+    if (wordsArr[i].length === word.length && possibleWord !== this.word){
       for (var j = 0; j < word.length; j++){
-        if (!wordsArr[i].includes(word[j])){
-          j = word.length;
-          break;
-        } else if (j === word.length - 1) {
-          anagrams.push(wordsArr[i])
-
+        if (possibleWord.includes(word[j])){
+          possibleWord = possibleWord.replace(word[j], '')
+          if (possibleWord === ''){
+            anagrams.push(wordsArr[i]);
+          }
         }
-        console.log(wordsArr[i]);
-        // console.log(wordsArr[i].indexAt(j));
       }
     }
   }
