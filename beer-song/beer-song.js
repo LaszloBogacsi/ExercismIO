@@ -2,8 +2,6 @@ function BeerSong() {
 
 }
 
-var start = 'bottles of beer on the wall'
-
 var verses = function (numberOfVerse){
 
   var verse =
@@ -19,7 +17,6 @@ var verses = function (numberOfVerse){
 
   return verse;
 };
-
 
 
 BeerSong.prototype.verse = function (numberOfVerse) {
@@ -38,8 +35,12 @@ BeerSong.prototype.verse = function (numberOfVerse) {
 
 BeerSong.prototype.sing = function (from, to = 0) {
   var song = '';
-  for(i = from; i >= to; i--){
-    song += verses(i).nBottles + '\n';
+  for(var i = from; i >= to; i--){
+    if (i != to) {
+      song += this.verse(i) + '\n';
+    } else {
+      song += this.verse(i);
+    }
   }
   return song;
 };
