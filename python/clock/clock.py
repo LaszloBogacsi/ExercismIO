@@ -6,8 +6,7 @@ class Clock:
         self.minute = minute
 
     def __eq__ (self, other):
-        return self.hour == other.hour and self.minute == other.minute
-
+        return repr(self) == repr(other)
     def __repr__(self):
         if self.minute < 0 or self.minute > 59:
             hoursFromMinutes = self.minute / 60
