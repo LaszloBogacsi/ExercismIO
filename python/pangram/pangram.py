@@ -5,7 +5,7 @@ def is_pangram(sentence):
     alphabet = 'abcdefghijklmnopqrstuvwxyz'
 
     for i in range(len(alphabet)):
-        if not alphabet[i] in stripped:
+        if alphabet[i] not in stripped:
             return False
     return True
 
