@@ -8,7 +8,8 @@ var robotNames = [];
 Robot.prototype.newName = function () {
   newName = '';
   for (var i = 0; i < 2; i++){
-    newName += alphabet[Math.floor(Math.random()*(26+1))]
+    var randomNumber = Math.floor(Math.random()*26)
+    newName += alphabet[randomNumber]
   }
   for (var i = 0; i < 3; i++) {
     newName += Math.floor(Math.random()*4)
@@ -18,9 +19,11 @@ Robot.prototype.newName = function () {
   }
   robotNames.push(newName);
   this.name = newName;
-
-  return newName;
 }
 
+
+Robot.prototype.reset = function () {
+  this.newName();
+};
 
 module.exports = Robot;
