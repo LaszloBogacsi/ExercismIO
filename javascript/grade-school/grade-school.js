@@ -13,7 +13,12 @@ School.prototype.add = function (name, grade) {
   } else {
     this.studentList[grade].push(name)
   }
-
 };
+
+School.prototype.grade = function (grade) {
+  listOfNamesSorted = this.studentList[grade].sort()
+  return listOfNamesSorted
+};
+
 
 module.exports = School;
