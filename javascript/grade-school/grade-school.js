@@ -16,6 +16,9 @@ School.prototype.add = function (name, grade) {
 };
 
 School.prototype.grade = function (grade) {
+  if (!this.studentList[grade]){
+    return [];
+  }
   listOfNamesSorted = this.studentList[grade].sort()
   return listOfNamesSorted
 };
