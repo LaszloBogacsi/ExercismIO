@@ -2,10 +2,10 @@ function School () {
   this.studentList = {}
 }
 
-var sorting = function(list){
-  var keys = Object.keys(list.studentList);
+var sorting = function(school){
+  var keys = Object.keys(school.studentList);
   for(var i = 0; i < keys.length; i++){
-    list.studentList[keys[i]].sort();
+    school.studentList[keys[i]].sort();
   };
 };
 
