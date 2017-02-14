@@ -1,10 +1,11 @@
 function Robot(){
-this.name = newName();
+this.name;
+this.newName();
 }
 
 var alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 var robotNames = [];
-var newName = function (){
+Robot.prototype.newName = function () {
   newName = '';
   for (var i = 0; i < 2; i++){
     newName += alphabet[Math.floor(Math.random()*(26+1))]
@@ -13,6 +14,8 @@ var newName = function (){
     newName += Math.floor(Math.random()*4)
   }
   robotNames.push(newName);
+  this.name = newName;
+
   return newName;
 }
 

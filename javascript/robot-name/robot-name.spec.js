@@ -14,10 +14,11 @@ describe('Robot', function() {
   });
 
   it('has a name', function() {
+    console.log(new Robot())
     expect(robot.name).toMatch(/^[A-Z]{2}\d{3}$/);
   });
 
-  xit('name is the same each time', function() {
+  it('name is the same each time', function() {
     expect(robot.name).toEqual(robot.name);
   });
 
