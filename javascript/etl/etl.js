@@ -4,10 +4,13 @@ function ETL() {
 
 ETL.prototype.transform = function (data) {
   var newData = {};
-  var value = Number(Object.keys(data)[0]);
-  var newKey = data[Object.keys(data)[0]][0].toLowerCase()
+  var newValue = Number(Object.keys(data)[0]);
+  var array = data[Object.keys(data)[0]];
 
-  newData[newKey] = value;
+  for (var i = 0; i < array.length; i++) {
+    var newKey = array[i].toLowerCase()
+    newData[newKey] = newValue;
+  }
 
   return newData;
 };
