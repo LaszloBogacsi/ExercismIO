@@ -44,11 +44,11 @@ describe('School', function() {
     expect(school.grade(1)).toEqual([]);
   });
 
-  xit('the students names in each grade in the roster are sorted', function() {
+  it('the students names in each grade in the roster are sorted', function() {
     school.add('Jennifer', 4);
     school.add('Kareem', 6);
-    school.add('Christopher', 4);
     school.add('Kyle', 3);
+    school.add('Christopher', 4);
     var sorted = {
       3 : [ 'Kyle' ],
       4 : [ 'Christopher', 'Jennifer' ],

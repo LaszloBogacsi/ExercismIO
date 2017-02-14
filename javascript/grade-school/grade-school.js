@@ -2,9 +2,15 @@ function School () {
   this.studentList = {}
 }
 
-School.prototype.roster = function () {
+var sorting = function(list){
+  var keys = Object.keys(list.studentList);
+  for(var i = 0; i < keys.length; i++){
+    list.studentList[keys[i]].sort();
+  };
+};
 
-return this.studentList
+School.prototype.roster = function () {
+  return this.studentList;
 };
 
 School.prototype.add = function (name, grade) {
@@ -13,15 +19,18 @@ School.prototype.add = function (name, grade) {
   } else {
     this.studentList[grade].push(name)
   }
+  sorting(this);
 };
 
 School.prototype.grade = function (grade) {
   if (!this.studentList[grade]){
     return [];
   }
-  listOfNamesSorted = this.studentList[grade].sort()
+  listOfNamesSorted = this.studentList[grade].sort();
   return listOfNamesSorted
 };
+
+
 
 
 module.exports = School;
