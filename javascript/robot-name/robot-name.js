@@ -13,6 +13,9 @@ Robot.prototype.newName = function () {
   for (var i = 0; i < 3; i++) {
     newName += Math.floor(Math.random()*4)
   }
+  if (robotNames.includes(newName)){
+    this.newName();
+  }
   robotNames.push(newName);
   this.name = newName;
 
