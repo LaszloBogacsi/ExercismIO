@@ -27,7 +27,7 @@
  * See its tests in this folder for a quick primer on how to use it! ( :
  */
 
-var Grains = require('./grains');
+var Grains = require('./grains.js');
 
 describe('Grains', function () {
   var grains = new Grains();
@@ -36,27 +36,27 @@ describe('Grains', function () {
     expect(grains.square(1)).toBe('1');
   });
 
-  xit('square 2', function () {
+  it('square 2', function () {
     expect(grains.square(2)).toBe('2');
   });
 
-  xit('square 3', function () {
+  it('square 3', function () {
     expect(grains.square(3)).toBe('4');
   });
 
-  xit('square 4', function () {
+  it('square 4', function () {
     expect(grains.square(4)).toBe('8');
   });
 
-  xit('square 16', function () {
+  it('square 16', function () {
     expect(grains.square(16)).toBe('32768');
   });
 
-  xit('square 32', function () {
+  it('square 32', function () {
     expect(grains.square(32)).toBe('2147483648');
   });
 
-  xit('square 64', function () {
+  it('square 64', function () {
     expect(grains.square(64)).toBe('9223372036854775808');
   });
 

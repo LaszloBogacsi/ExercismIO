@@ -1,10 +1,15 @@
-var BigInt = require('./big-integer');
+var bigInt = require('./big-integer');
 
 
 function Grains() {
 
 }
 
-Grains.prototype.square = function () {
-
+Grains.prototype.square = function (power) {
+  var bigNum = bigInt(2).pow(power - 1);
+  console.log(bigNum);
+  return bigNum.toString();
 };
+
+
+module.exports = Grains;
