@@ -1,61 +1,38 @@
 function Triangle(x, y, z) {
-this.x = x;
-this.y = y;
-this.z = z;
 this.sides = [x, y, z];
 }
 
 
 var invalid = function(sides) {
-  if (sides.reduce(function(sum, side){
-    return sum + side;
-  }, 0) === 0){
-    return true;
-  }
-  if(sides[0] + sides[1] < sides[2] || sides[0] + sides[2] < sides[1] || sides[1] + sides[2] < sides[0] ) {
-    return true;
-  } else {
-    return false;
-  }
+  var hasNoSize = (sides.reduce((sum, side)=>{ return sum + side}, 0) === 0);
+  if (hasNoSize) {return true};
+
+  var anyTwoSidesLessThanThird = (sides[0] + sides[1] < sides[2] || sides[0] + sides[2] < sides[1] || sides[1] + sides[2] < sides[0] );
+  if (anyTwoSidesLessThanThird) {return true} else {return false};
+
 }
 
-var hasTwoEqual = function (sides) {
-  arr = sides.sort();
-  if (hasAllEqualSides(sides) != true && arr[0] == arr[1] && arr[0] != arr[2] || arr[0] != arr[1] && arr[1] == arr[2] ){
-    return true;
-  } else {
-    return false;
-  }
-};
+var names = {
+  1: 'scalene',
+  2: 'isosceles',
+  3: 'equilateral'}
 
-var hasAllEqualSides = function (sides) {
-  if (sides[0] == sides[1] && sides[0] == sides[2] && sides[1] == sides[2]) {
-    return true;
-  } else {
-    return false;
-  }
-};
-var hasNoEqualSides = function (sides) {
-  if (sides[0] != sides[1] && sides[0] != sides[2] && sides[1] != sides[2]) {
-    return true;
-  } else {
-    return false;
-  }
-};
+var numberOfEqualSides = function(sides){
+  var arrOfEqualSides = sides.map(function(oneSide){
+    return sides.filter(function(side){
+      return side === oneSide
+    }).length;
+  });
+  var numberOfEqualSides = Math.max(...arrOfEqualSides)
+  return numberOfEqualSides;
+}
 
 Triangle.prototype.kind = function () {
   if (invalid(this.sides)) {
     throw new Error();
   }
-  if (hasAllEqualSides(this.sides)) {
-    return 'equilateral'
-   }
-  if (hasTwoEqual(this.sides)) {
-    return 'isosceles';
-  };
-  if (hasNoEqualSides(this.sides)){
-    return 'scalene';
-  }
+
+  return names[numberOfEqualSides(this.sides)];
 
 };
 
