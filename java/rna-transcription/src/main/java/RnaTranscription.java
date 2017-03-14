@@ -7,7 +7,7 @@ public class RnaTranscription {
         HashMap<String, String> complements = new HashMap<>();
         complements.put("G", "C");
         complements.put("C", "G");
-        complements.put("T", "T");
+        complements.put("T", "A");
         complements.put("A", "U");
         result = complements.get(dnaString);
       }
