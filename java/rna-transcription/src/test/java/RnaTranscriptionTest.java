@@ -38,7 +38,6 @@ public class RnaTranscriptionTest {
         Assert.assertEquals("U", rnaTranscription.ofDna("A"));
     }
 
-    @Ignore
     @Test
     public void testRnaTranscription() {
         Assert.assertEquals("UGCACCAGAAUU", rnaTranscription.ofDna("ACGTGGTCTTAA"));
